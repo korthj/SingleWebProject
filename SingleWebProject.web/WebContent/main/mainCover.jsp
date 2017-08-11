@@ -12,13 +12,14 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Cover Template for Bootstrap</title>
+    <title>BeetlesDic.com</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../resources/css/cover.css" rel="stylesheet">
+    <link href="../resources/css/carousel.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -35,7 +36,49 @@
     </script>
   </head>
 
-  <body style="background-image: url('../img/DSC00853.JPG'); background-size: cover;">
+  <body> <!-- style="background-image: url('../img/DSC00853.JPG'); background-size: cover;"-->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="../img/DSC00853.JPG" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="../img/DSC00535.JPG" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+             
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
 
     <div class="site-wrapper">
 
@@ -80,8 +123,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../js/holder.js"></script>
   </body>
 </html>

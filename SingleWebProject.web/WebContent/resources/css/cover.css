@@ -52,12 +52,12 @@ body {
 .cover-container {
   margin-right: auto;
   margin-left: auto;
-
 }
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+  padding: 0px;
+  width:100%;
 }
 
 

@@ -34,13 +34,11 @@
   </head>
 
   <body> <!-- style="background-image: url('../img/DSC00853.JPG'); background-size: cover;"-->
- <div class="site-wrapper">
 
-      <div class="site-wrapper-inner">
 
         <div class="cover-container">
 
-          <div class="masthead clearfix" style="position: relative; z-index:11;">
+          <div class="masthead clearfix" style="position: absolute; z-index:11;">
             <div class="inner">
               <h3 class="masthead-brand"><a href="../main/mainCover.jsp">Beetles.dic</a></h3>
               <nav>
@@ -83,24 +81,26 @@
           
         </div>
         </div>
+        
           </div>
-           <div class="inner cover" style="position: relative; z-index: 11;">
+          <div class="cover-container" style="position: relative; z-index:11;"> 
+           <div class="inner" >
             <h1 class="cover-heading">This is Beetles Dictionary Pages.</h1>
             <p class="lead">This is the beetles Dictionary site. Although it is a little information at present, it will be a free beetles Dictionary site with cooperation of users.</p>
             <p class="lead">
               <a href="#" class="btn btn-lg btn-default">Learn more</a>
             </p>
           </div>
-
+          </div>
+			<div class="cover-container" style="position: relative; bottom:0px;" >
           <div class="mastfoot" style="position: relative; z-index: 11;">
             <div class="inner">
               <p>Developer by <a href="">HJ Kim</a> , Partner by<a href="http://www.stagBeetles.com"> 충우</a></p>
             </div>
           </div>
-          
+          </div>
      
- </div>
-</div>
+ 
 
   
    

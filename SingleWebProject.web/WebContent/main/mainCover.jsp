@@ -33,7 +33,7 @@
     
   </head>
 
-  <body> <!-- style="background-image: url('../img/DSC00853.JPG'); background-size: cover;"-->
+  <body> 
 
 
         <div class="cover-container">
@@ -83,17 +83,17 @@
         </div>
         
           </div>
-          <div class="cover-container" style="position: relative; z-index:11;"> 
-           <div class="inner" >
+          
+           <div class="carousel-main"><!-- cover.css -->
             <h1 class="cover-heading">This is Beetles Dictionary Pages.</h1>
             <p class="lead">This is the beetles Dictionary site. Although it is a little information at present, it will be a free beetles Dictionary site with cooperation of users.</p>
             <p class="lead">
               <a href="#" class="btn btn-lg btn-default">Learn more</a>
             </p>
           </div>
-          </div>
+    
 			<div class="cover-container" style="position: relative; bottom:0px;" >
-          <div class="mastfoot" style="position: relative; z-index: 11;">
+          <div class="mastfoot" style="position: absolute; z-index: 11;">
             <div class="inner">
               <p>Developer by <a href="">HJ Kim</a> , Partner by<a href="http://www.stagBeetles.com"> 충우</a></p>
             </div>

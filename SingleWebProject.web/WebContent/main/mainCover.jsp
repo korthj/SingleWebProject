@@ -33,88 +33,89 @@
     
   </head>
 
-  <body> 
+<body>
+
+	<div class="cover-container" >
+
+		<div class="masthead clearfix" style="position: absolute; z-index: 11; left: 0; right: 0; margin: auto;">
+			<div class="inner">
+				<h3 class="masthead-brand">
+					<a href="../main/mainCover.jsp">Beetles.dic</a>
+				</h3>
+				<nav>
+					<ul class="nav masthead-nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#">Features</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>  
 
 
-        <div class="cover-container">
-
-          <div class="masthead clearfix" style="position: absolute; z-index:11;">
-            <div class="inner">
-              <h3 class="masthead-brand"><a href="../main/mainCover.jsp">Beetles.dic</a></h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-
-   
-        </div>
+	</div>
 
 
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000"  style="position: relative; z-index:1;">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="false" style="z-index: 1;">
+
+		<div class="carousel-inner" role="listbox">
+
+
+			<div class="item active">
+				<img class="first-slide" src="../img/DSC00853.JPG" alt="First slide">
+				<div class="container"></div>
+
+			</div>
+			<div class="item">
+				<img class="second-slide" src="../img/DSC00535.JPG"
+					alt="Second slide">
+				<div class="container"></div>
+			</div>
+			<div class="item">
+				<img class="third-slide" src="../img/DSC01896.JPG" alt="Third slide">
+				<div class="container"></div>
+
+			</div>
+		</div>
+
+	</div>
   
-      <div class="carousel-inner" role="listbox">
-      
-      
-        <div class="item active" >
-          <img class="first-slide" src="../img/DSC00853.JPG" alt="First slide">
-          <div class="container">
-             
-          </div>
-          
-        </div>
-        <div class="item">
-          <img class="second-slide" src="../img/DSC00535.JPG" alt="Second slide">
-          <div class="container">
-           
-          </div>
-        </div>
-        <div class="item" >
-          <img class="third-slide" src="../img/DSC01896.JPG" alt="Third slide">
-          <div class="container">
-            
-          </div>
-          
-        </div>
-        </div>
-        
-          </div>
-          
-           <div class="carousel-main"><!-- cover.css -->
-            <h1 class="cover-heading">This is Beetles Dictionary Pages.</h1>
-            <p class="lead">This is the beetles Dictionary site. Although it is a little information at present, it will be a free beetles Dictionary site with cooperation of users.</p>
-            <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">Learn more</a>
-            </p>
-          </div>
-    
-			<div class="cover-container" style="position: relative; bottom:0px;" >
-          <div class="mastfoot" style="position: absolute; z-index: 11;">
-            <div class="inner">
-              <p>Developer by <a href="">HJ Kim</a> , Partner by<a href="http://www.stagBeetles.com"> 충우</a></p>
-            </div>
-          </div>
-          </div>
-     
- 
+	<div class="inner-cover" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 10%; width: 100%; margin-top:30%; z-index: 11;">
+		<div style="position: relative;">
+			<h1 class="cover-heading">This is Beetles Dictionary Pages.</h1>
+			<p class="lead">This is the beetles Dictionary site. Although it
+				is a little information at present, it will be a free beetles
+				Dictionary site with cooperation of users.</p>
+			<p class="lead">
+				<a href="#" class="btn btn-lg btn-default">Learn more</a>
+			</p>
+		</div>
+	</div>
 
-  
-   
-<!-- /.carousel -->
 
-  
 
-    <!-- Bootstrap core JavaScript
+	<div class="cover-container" style="position: relative; width:100%; margin:auto; z-index:11;">
+		<div class="mastfoot" style="position:absolute; left: 0; right: 0; margin:auto; bottom:0; z-index:11;" >
+			<div class="inner">
+				<p>
+					Developer by <a href="">HJ Kim</a> , Partner by<a href="http://www.stagBeetles.com"> 충우</a>
+				</p>
+			</div>
+		</div>
+	</div>  
+
+	<!-- /.carousel -->
+
+
+
+	<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../resources/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../resources/assets/ie10-viewport-bug-workaround.js"></script>
-    <script src="../resources/js/holder.js"></script>
-  </body>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="../resources/assets/ie10-viewport-bug-workaround.js"></script>
+	<script src="../resources/js/holder.js"></script>
+</body>
 </html>

@@ -53,10 +53,10 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
-
+ 
 /* Padding for spacing */
 .inner {
-  padding: 0px;
+  padding: 30px;
 }
 .carousel-main {
 	position: absolute;
@@ -66,8 +66,10 @@ body {
 	left: 0;
 	right: 0;
 	height: 10%;
-	margin: auto;
+	width:100%;
+	margin: 0;
 	z-index: 11;
+	float:left;
 }
 
 /*
@@ -106,7 +108,7 @@ body {
   border-bottom-color: #fff;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 850px) {
   .masthead-brand {
     float: left;
   }
@@ -143,15 +145,19 @@ body {
  * Affix and center
  */
 
-@media (min-width: 768px) {
+@media (min-width: 850px) {
   /* Pull out the header and footer */
   .masthead {
-    position: fixed;
+    position: relative;
     top: 0;
   }
   .mastfoot {
-    position: fixed;
+    position: relative;
     bottom: 0;
+  }
+  .inner-cover{
+  	position:relative;
+  	top:0;
   }
   /* Start the vertical centering */
   .site-wrapper-inner {

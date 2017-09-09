@@ -27,8 +27,8 @@ public class Paging {
 	public void setPaging() {
 		//
 		//시작 페이지 0으로 설정
-		startPageNo = ((pageNo - 1) - pageNo) + 1;
-		//마지막 페이지 4로 설정(총5페이지)
+		startPageNo = ((pageNo - 1) - pageNo) + 2;
+		//마지막 페이지 5로 설정(총5페이지)
 		endPageNo = startPageNo + viewPageSize - 1;
 
 		// 총 페이지수
@@ -45,25 +45,47 @@ public class Paging {
 		if (endPageNo > totalPageNo) {
 			endPageNo = totalPageNo;
 		}
-
-		// 다음 버튼 페이지 번호
-		for (int i = pageNo; i >= pageNo;) {
-			nextPageNo = i++;
+		//첫페이지로 이동
+		if(pageNo>1){
+			System.out.println("<a href=\"?pageNo=1\">처음</a>");
 		}
-		// 이전 버튼 페이지 번호
-		for (int i = pageNo; i <= pageNo;) {
-			prevPageNo = i--;
+		//이전 페이지로 이동
+		if(pageNo>1){
+			System.out.println("<a href=\"?pageNo=" + (pageNo-1) + "\">이전</a>");
 		}
 
 		for (int iCount = startPageNo; iCount <= endPageNo; iCount++) {
-			if(){
-				
+			if(iCount == pageNo){
+				System.out.println("<br>" + iCount + "</br>");
 			}else{
 			System.out.println(" " + iCount + " ");
 			}
 		}
+		//다음페이지 번호로 이동
+		if(pageNo<totalPageNo){
+			System.out.println("<a href=\"?pageNo=" + (pageNo+1) + "\">다음</a>");
+		}
+		
+		//마지막 페이지 번호로 이동
+		if(pageNo<totalPageNo){
+			System.out.println("<a href=\"pageNo=" + (totalPageNo) + "\">끝</a>");
+		}
 	}
-
+	
+	public void setNextPageNo(){
+		// 다음 버튼 페이지 번호
+		for (int i = pageNo; i >= pageNo;) {
+			nextPageNo = i++;
+		}
+	}
+	
+	public void setPrevPageNo(){
+		// 이전 버튼 페이지 번호
+		for (int i = pageNo; i <= pageNo;) {
+			prevPageNo = i--;
+		}
+	}
+	
 	public int getTotalPost() {
 		return totalPost;
 	}

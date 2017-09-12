@@ -2,159 +2,149 @@ package SingleWebProject.domain;
 
 public class Paging {
 	//
-	private int pageSize;//전체 페이지 사이즈
-	private int startPageNo;//시작페이지 
-	private int endPageNo;//끝 페이지
-	private int firstPageNo;//첫번째 페이지
-	private int lastPageNo;//마지막페이지
-	private int prevPageNo;//이전 페이지
-	private int nextPageNo;//다음 페이지
-	private int totalPageNo;//전체 페이지
-	private int pageNo;//현재 페이지
-	public static final int viewPageSize = 5;//보여지는 페이지 크기
-	public static final int countPostList = 5;//한 화면에 보여지는 게시물수
-	private int totalPost;//전체 게시물 수
-	public Paging(){
-		
-	}
+	//페이지 당 게시물 수
+	public static final int PAGE_SCALE = 10;
+	//화면 당 페이지 수
+	public static final int BLOCK_SCALE = 5;
+	private int curPage;//현재 페이지
+	private int nextPage;///다음 페이지
+	private int prevPage;//이전 페이지
+	private int totalPage;//전체 페이지
+	private int totalBlock;//전체 페이지 블록 개수
+	private int curBlock;//현재 페이지 블록
+	private int prevBlock;//아전 페이지 블록
+	private int nextBlock;//다음 페이지 블록
+	//where rn BETWEEN #{start} AND #{END} 
+	private int startBlockPage;//#{start},시작 페이지
+	private int endBlockPage;//#{end},마지막 페이지
+	private int blockBegin;//현재 페이지 블록의 시작 번호
+	private int blockEnd;//현재 페이지 블록의 마지막 번호
 	
-	public Paging(int pageNo){
+	//생성자
+	//레코드 개수, 현재 페이지 번호
+	public Paging( int count , int curPage){
 		//
-		this.pageNo = pageNo;
-		setPaging();
+		this.curPage = curPage;
+		curBlock = 1;//현재 페이지 블록
+		setTotalPage(count);//전체 페이지
+		setBlockRange();//페이지 블록의 시작, 끝 번호 계산
+		setTotalBlock();//전체 페이지 블록 계산
+		setPageRange();//페이지 시작 끝 번호 계산
 	}
 	
-	public void setPaging() {
-		//
-		//시작 페이지 0으로 설정
-		startPageNo = ((pageNo - 1) - pageNo) + 2;
-		//마지막 페이지 5로 설정(총5페이지)
-		endPageNo = startPageNo + viewPageSize - 1;
-
-		// 총 페이지수
-		totalPageNo = totalPost / countPostList;
-		//마지막 페이지 출력
-		if (totalPost % countPostList > 0) {
-			totalPageNo++;
-		}
-		//전체 페이지 보다 현재 페이지가 클 경우 보정
-		if (totalPageNo < pageNo) {
-			pageNo = totalPageNo;
-		}
-		//마지막 페이지 보정
-		if (endPageNo > totalPageNo) {
-			endPageNo = totalPageNo;
-		}
-		//첫페이지로 이동
-		if(pageNo>1){
-			System.out.println("<a href=\"?pageNo=1\">처음</a>");
-		}
-		//이전 페이지로 이동
-		if(pageNo>1){
-			System.out.println("<a href=\"?pageNo=" + (pageNo-1) + "\">이전</a>");
-		}
-
-		for (int iCount = startPageNo; iCount <= endPageNo; iCount++) {
-			if(iCount == pageNo){
-				System.out.println("<br>" + iCount + "</br>");
-			}else{
-			System.out.println(" " + iCount + " ");
-			}
-		}
-		//다음페이지 번호로 이동
-		if(pageNo<totalPageNo){
-			System.out.println("<a href=\"?pageNo=" + (pageNo+1) + "\">다음</a>");
-		}
+	public void setBlockRange(){
+		//현재 페이지의 블록 범위 계산
+		curBlock = (int)Math.ceil((curPage-1)/BLOCK_SCALE)+1;
 		
-		//마지막 페이지 번호로 이동
-		if(pageNo<totalPageNo){
-			System.out.println("<a href=\"pageNo=" + (totalPageNo) + "\">끝</a>");
+		//블록 시작 부분
+		blockBegin = (curBlock-1)*BLOCK_SCALE+1;
+		
+		//블록 끝 부분
+		blockEnd = blockBegin+BLOCK_SCALE-1;
+		
+		//블록의 마지막 부분이 전체 페이지를 넘지 않도록 보정
+		if(blockEnd > totalPage){
+			blockEnd = totalPage;
+		}
+		//이전 버튼을 눌었을때 이동할 이전 페이지
+		prevPage = (curPage==1) ? 1 : (curBlock-1)*BLOCK_SCALE; 
+		
+		//다음 버튼을 눌렀을때 이동할 다음 페이지
+		nextPage = (curBlock>totalBlock) ? curBlock*BLOCK_SCALE : curBlock*BLOCK_SCALE+1; 
+		
+		//현재 블록이 마지막 블록을 넘어가지 않게 보정
+		if(nextPage >= totalPage){
+			nextPage = totalPage;
 		}
 	}
-	
-	public void setNextPageNo(){
-		// 다음 버튼 페이지 번호
-		for (int i = pageNo; i >= pageNo;) {
-			nextPageNo = i++;
-		}
+	//현재 페이지 블록의 시작 페이지와 마지막 페이지 계산
+	public void setPageRange(){
+		//#{start}
+		startBlockPage = (curPage-1)*PAGE_SCALE+1;
+		//#{end}
+		endBlockPage = startBlockPage*PAGE_SCALE-1;
 	}
 	
-	public void setPrevPageNo(){
-		// 이전 버튼 페이지 번호
-		for (int i = pageNo; i <= pageNo;) {
-			prevPageNo = i--;
-		}
+	public void setTotalBlock(){
+		//전체 블록 크기
+		totalBlock = (int) Math.ceil(totalPage/BLOCK_SCALE);
 	}
 	
-	public int getTotalPost() {
-		return totalPost;
+	public int getCurPage() {
+		return curPage;
 	}
-
-	public void setTotalPost(int totalPost) {
-		this.totalPost = totalPost;
+	public void setCurPage(int curPage) {
+		this.curPage = curPage;
+	}
+	public int getNextPage() {
+		return nextPage;
+	}
+	public void setNextPage(int nextPage) {
+		this.nextPage = nextPage;
+	}
+	public int getPrevPage() {
+		return prevPage;
+	}
+	public void setPrevPage(int prevPage) {
+		this.prevPage = prevPage;
+	}
+	public int getTotalPage() {
+		return totalPage;
 	}
 	
-	public int getPageSize() {
-		return pageSize;
+	//전체 페이지 계산
+	public void setTotalPage(int count) {
+		totalPage = (int)Math.ceil(count*1.0/PAGE_SCALE);
 	}
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	
+	public int getTotalBlock() {
+		return totalBlock;
 	}
-	public int getStartPageNo() {
-		return startPageNo;
+	public void setTotalBlock(int totalBlock) {
+		this.totalBlock = totalBlock;
 	}
-	public void setStartPageNo(int startPageNo) {
-		this.startPageNo = startPageNo;
+	public int getCurBlock() {
+		return curBlock;
 	}
-	public int getEndPageNo() {
-		return endPageNo;
+	public void setCurBlock(int curBlock) {
+		this.curBlock = curBlock;
 	}
-	public void setEndPageNo(int endPageNo) {
-		this.endPageNo = endPageNo;
+	public int getPrevBlock() {
+		return prevBlock;
 	}
-	public int getFirstPageNo() {
-		return firstPageNo;
+	public void setPrevBlock(int prevBlock) {
+		this.prevBlock = prevBlock;
 	}
-	public void setFirstPageNo(int firstPageNo) {
-		this.firstPageNo = firstPageNo;
+	public int getNextBlock() {
+		return nextBlock;
 	}
-	public int getLastPageNo() {
-		return lastPageNo;
+	public void setNextBlock(int nextBlock) {
+		this.nextBlock = nextBlock;
 	}
-	public void setLastPageNo(int lastPageNo) {
-		this.lastPageNo = lastPageNo;
+	public int getStartBlockPage() {
+		return startBlockPage;
 	}
-	public int getPrevPageNo() {
-		return prevPageNo;
+	public void setStartBlockPage(int startBlockPage) {
+		this.startBlockPage = startBlockPage;
 	}
-	public void setPrevPageNo(int prevPageNo) {
-		this.prevPageNo = prevPageNo;
+	public int getEndBlockPage() {
+		return endBlockPage;
 	}
-	public int getNextPageNo() {
-		return nextPageNo;
+	public void setEndBlockPage(int endBlockPage) {
+		this.endBlockPage = endBlockPage;
 	}
-	public void setNextPageNo(int nextPageNo) {
-		this.nextPageNo = nextPageNo;
+	public int getBlockBegin() {
+		return blockBegin;
 	}
-	public int getTotalPageNo() {
-		return totalPageNo;
+	public void setBlockBegin(int blockBegin) {
+		this.blockBegin = blockBegin;
 	}
-	public void setTotalPageNo(int totalPageNo) {
-		this.totalPageNo = totalPageNo;
+	public int getBlockEnd() {
+		return blockEnd;
 	}
-	public int getPageNo() {
-		return pageNo;
+	public void setBlockEnd(int blockEnd) {
+		this.blockEnd = blockEnd;
 	}
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
-	}
-
-	@Override
-	public String toString() {
-		return "Paging [pageSize=" + pageSize + ", startPageNo=" + startPageNo + ", endPageNo=" + endPageNo
-				+ ", firstPageNo=" + firstPageNo + ", lastPageNo=" + lastPageNo + ", prevPageNo=" + prevPageNo
-				+ ", nextPageNo=" + nextPageNo + ", totalPageNo=" + totalPageNo + ", pageNo=" + pageNo
-				+ ", viewPageSize=" + viewPageSize + ", countPostList=" + countPostList + ", totalPost=" + totalPost
-				+ "]";
-	}	
+	
 }
+	

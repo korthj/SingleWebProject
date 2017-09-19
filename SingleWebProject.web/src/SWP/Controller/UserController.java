@@ -1,4 +1,4 @@
-package Controller;
+package SWP.Controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,12 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController{
 	//
 	@Autowired
-	private UserService service;
+	private UserService userService;
 	
 	@RequestMapping("/login.do")
 	public ModelAndView loginCheck(User user,HttpSession session){
 		ModelAndView mav = new ModelAndView();
-		User users = service.loginCheck(user);
+		User users = userService.loginCheck(user);
 		if(users = null){
 			mav.addObject("message","error");
 			mav.setViewName("/login.jsp");

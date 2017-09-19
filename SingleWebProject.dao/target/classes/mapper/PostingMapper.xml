@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SWP.dao.mapper.PostingMapper">
+	
+	<resultMap type="Posting" id="Posting-map">
+		<result property="postTitle" column="postTitle"/>		
+		<result property="postCreatorName" column="postCreatorName"/>		
+		<result property="postId" column="postId"/>		
+		<result property="postCreateDate" column="postCreateDate"/>		
+		<result property="postContents" column="postContents"/>		
+		<result property="boardId" column="boardId"/>		
+		<result property="start" column="start"/>		
+		<result property="end" column="end"/>		
+	</resultMap>
+	
+		<!-- 포스팅 페이징 쿼리  -->
+	<select id="AllList" parameterType="map" resultType="Board">
+		SELECT @ROWNUM := @ROWNUM + 1 as rnum, id, name, creatdate
+		FROM posting_tb, (SELECT @ROWNUM := 0) A
+		WHERE boardid
+		ODER BY createdate
+		LIMIT start,end
+	</select>
+	
+</mapper>

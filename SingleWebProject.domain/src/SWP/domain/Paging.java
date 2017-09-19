@@ -1,4 +1,4 @@
-package SingleWebProject.domain;
+package SWP.domain;
 
 public class Paging {
 	//
@@ -64,6 +64,7 @@ public class Paging {
 		//#{end}
 		endBlockPage = startBlockPage*PAGE_SCALE-1;
 	}
+
 	
 	public void setTotalBlock(){
 		//전체 블록 크기

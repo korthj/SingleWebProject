@@ -3,6 +3,8 @@
   <groupId>SingleWebProject</groupId>
   <artifactId>SingleWebProject.dao</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -55,6 +57,13 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.4.1</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        
   </dependencies>
   
   

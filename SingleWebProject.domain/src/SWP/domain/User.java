@@ -1,4 +1,4 @@
-package SingleWebProject.domain;
+package SWP.domain;
 
 public class User {
 	//

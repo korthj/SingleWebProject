@@ -45,8 +45,8 @@
 				<nav>
 					<ul class="nav masthead-nav">
 						<li class="active"><a href="#">Login</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="#">comunity</a></li>
+						<li><a href="#">Dictionary</a></li>
 					</ul>
 				</nav>
 			</div>

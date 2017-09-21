@@ -28,5 +28,6 @@
   	
   	<mappers>
   		<mapper resource="mapper/BoardMapper.xml"/>
+  		<mapper resource="mapper/PostingMapper.xml"/>
   	</mappers>
   </configuration>

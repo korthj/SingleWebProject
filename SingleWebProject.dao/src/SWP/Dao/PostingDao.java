@@ -1,12 +1,13 @@
 package SWP.Dao;
 
 import java.util.List;
+import java.util.Map;
 
 import SWP.domain.Posting;
 
 public interface PostingDao {
 	//
-	List<Posting> allList(int start, int end, int boardId, int totalPageNo);
+	List<Posting> allPageList(Map<String, Object> map);
 
 	
 }

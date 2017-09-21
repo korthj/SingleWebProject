@@ -11,15 +11,16 @@
 		<result property="postContents" column="postContents"/>		
 		<result property="boardId" column="boardId"/>		
 		<result property="start" column="start"/>		
-		<result property="end" column="end"/>		
+		<result property="end" column="end"/>	
+		<result property="totalPageNo" column="totalPageNo"/>	
 	</resultMap>
 	
 		<!-- 포스팅 페이징 쿼리  -->
-	<select id="AllList" parameterType="map" resultType="Board">
-		SELECT @ROWNUM := @ROWNUM + 1 as rnum, id, name, creatdate
-		FROM posting_tb, (SELECT @ROWNUM := 0) A
+	<select id="allList" parameterType="map" resultType="Posting">
+		SELECT postId, boardId, postCreatorName, postCreatDate
+		FROM posting_tb
 		WHERE boardid
-		ODER BY createdate
+		ODER BY postCreateDate
 		LIMIT start,end
 	</select>
 	

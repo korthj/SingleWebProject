@@ -45,7 +45,7 @@
 				<nav>
 					<ul class="nav masthead-nav">
 						<li class="active"><a href="#">Login</a></li>
-						<li><a href="#">comunity</a></li>
+						<li><a href="#">community</a></li>
 						<li><a href="#">Dictionary</a></li>
 					</ul>
 				</nav>
@@ -83,7 +83,7 @@
 	<div class="inner-cover" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 10%; width: 100%; margin-top:30%; z-index: 11;">
 		<div style="position: relative;">
 			<h1 class="cover-heading">This is Beetles Dictionary Pages.</h1>
-			<p class="lead">This is the beetles Dictionary site. Although it
+			<p class="lead">This is the beetles Dictionary site.<br> Although it
 				is a little information at present, it will be a free beetles
 				Dictionary site with cooperation of users.</p>
 			<p class="lead">

@@ -1,13 +1,14 @@
 package SWP.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import SWP.domain.Posting;
 
 
 public interface PostingService {
 
-	List<Posting> allList(int start, int end, int boardId, int totalPageNo);
+	List<Posting> allList(Map<String, Object> map);
 	//
 	
 }

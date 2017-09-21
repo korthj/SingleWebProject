@@ -12,8 +12,15 @@ public class Posting {
 	private String boardId;
 	private int start;//시작 페이지
 	private int end;//마지막 페이지
+	private int totalPageNo;//전페 페이지 번호 
 		
 	
+	public int getTotalPageNo() {
+		return totalPageNo;
+	}
+	public void setTotalPageNo(int totalPageNo) {
+		this.totalPageNo = totalPageNo;
+	}
 	public String getBoardId() {
 		return boardId;
 	}
@@ -67,7 +74,7 @@ public class Posting {
 	public String toString() {
 		return "Posting [postTitle=" + postTitle + ", postCreatorName=" + postCreatorName + ", postId=" + postId
 				+ ", postCreateDate=" + postCreateDate + ", postContents=" + postContents + ", boardId=" + boardId
-				+ ", start=" + start + ", end=" + end + "]";
+				+ ", start=" + start + ", end=" + end + ", totalPageNo=" + totalPageNo + "]";
 	}
 	
 }

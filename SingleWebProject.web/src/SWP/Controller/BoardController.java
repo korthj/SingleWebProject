@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import SWP.Service.BoardService;
 import SWP.Service.PostingService;
-import SWP.domain.Board;
 import SWP.domain.Paging;
 import SWP.domain.Posting;
 @Controller
@@ -39,17 +38,23 @@ public class BoardController {
 		int end = paging.getEndBlockPage();
 		int totalPageNo = paging.getTotalPage();
 		
-		List<Posting> list = postingService.allList(start, end, boardId, totalPageNo);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("count", count);
+		map.put("start", start);
+		map.put("end", end);
+		map.put("totalPageNo", totalPageNo);
 		
-		//map을 이용하여 키와 밸류 저장
+		List<Posting> list = postingService.allList(map);
+		
+		/*//map을 이용하여 키와 밸류 저장
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list);
 		map.put("count", count);
 		map.put("boardId", boardId);
 		map.put("totalPageNo", totalPageNo);
 		map.put("paging", paging);
-		
-		mav.addObject("map",map);
+		*/
+		mav.addObject("list",list);
 		mav.setViewName("board/list");
 		
 	return mav;

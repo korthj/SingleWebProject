@@ -100,6 +100,37 @@ if(typeof(Login) == "undefined") var Login = {};
 				html += "<div id='"+this.hash.id+"_overlay' style='display:none;width:100%;position:absolute;top:0px;left:0px;opacity:0.5;background-color:#000000;z-Index:999'></div>";
 				
 				return html;
+			},
+			
+			//콘텐츠 레이어를 가운데로 이동(top, left 조절해 줌)
+			moveCenter : function(){
+				//left 좌표 구하기
+				var left = Math.floor((this.c_width-this.width)/2);
+				
+				//top 좌표 구하기
+				var res_height; //콘텐츠를 화면상의 가운데로 두었을 때의 높이
+				if(this.c_height < this.height){
+					//화면 높이<콘텐츠 레이어 높이
+					res_height = 0;					
+				}else{
+					//화면 높이>= 콘텐츠 레이어 높이
+					res_height = Math.floor((this.c_height - this.height)/2);
+					}
+				var top = res_height + $(document).scrollTop();//화면상의 높이를 스크롤 높이를 더한 절대좌표를 top에 저장
+				
+				//css의 top,left 조정
+				$("#" + this.hash.id).css("top",top);
+				$("#" + this.hash.id).css("left",left);
+			},
+			
+			//배경 레이어 적용
+			applyOverlay : function(){
+				//body 사이즈 구하기(멤버변수에 저장)
+				this.getBodySize();
+				
+				//배경 레이어에 width,height css 값 조정
+				$("#" + this.hash.id + "_overlay").css("width",this.s_width);
+				$("#" + this.hash.id + "_overlay").css("height",this.s_height);
 			}
 	}
 })(jQuery);

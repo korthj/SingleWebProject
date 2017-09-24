@@ -24,13 +24,29 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../resources/assets/ie-emulation-modes-warning.js"></script>
-
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>	
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->    
-    
+    <!-- 모달 스크립트 -->
+    <script type="text/javascript" src="../resources/js/loginModal.js"></script>
+   	<script type="text/javascript">
+    //모달 인스턴스 생성 
+    var loginModal = new Login.Modal({
+    	id: "loginModalWindow"//모달 로그인 창 아이디
+    });
+    //모달 창 여는 버튼에 이벤트 바인딩
+    $("#loginModalButton").click(function(){
+    	loginModal.show();
+    });
+    //모달 창속 확인 버튼에 이벤트 바인딩
+    $("#loginConfirmButton").click(function(){
+    	alert("sucsses");
+    	loginModal.hide();
+    });
+    </script>
   </head>
 
 <body>
@@ -44,7 +60,7 @@
 				</h3>
 				<nav>
 					<ul class="nav masthead-nav">
-						<li class="active"><a href="#">Login</a></li>
+						<li class="active" id="loginModalButton"><a href="#">Login</a></li>
 						<li><a href="#">community</a></li>
 						<li><a href="#">Dictionary</a></li>
 					</ul>

@@ -15,41 +15,70 @@
     <title>BeetlesDic.com</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../resources/css/cover.css" rel="stylesheet">
-    <link href="../resources/css/carousel.css" rel="stylesheet">
-
+    <link href="${pageContext.request.contextPath}/resources/css/cover.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/bootstrapLoginModal.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/bootstrapLoginModalWindow.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../resources/assets/ie-emulation-modes-warning.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
+    <!-- <script src="${pageContext.request.contextPath}/resources/assets/ie-emulation-modes-warning.js"></script> -->
+	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>	
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->    
-    <!-- 모달 스크립트 -->
-    <script type="text/javascript" src="../resources/js/loginModal.js"></script>
-   	<script type="text/javascript">
-    //모달 인스턴스 생성 
-    var loginModal = new Login.Modal({
-    	id: "loginModalWindow"//모달 로그인 창 아이디
-    });
-    //모달 창 여는 버튼에 이벤트 바인딩
-    $("#loginModalButton").click(function(){
-    	loginModal.show();
-    });
-    //모달 창속 확인 버튼에 이벤트 바인딩
-    $("#loginConfirmButton").click(function(){
-    	alert("sucsses");
-    	loginModal.hide();
-    });
-    </script>
-  </head>
+	 <script type="text/javascript">
+	// Get the modal
+	var modal = document.getElementById('loginModal');
+	
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+	</script>
+</head>
 
 <body>
+
+<!-- Button to open the modal login form 
+<button onclick="document.getElementById('loginModal').style.display='block'">Login</button>-->
+
+<!-- The Modal -->
+<div id="loginModal" class="modal">
+ <!--  <span onclick="document.getElementById('loginModal').style.display='none'" 
+class="close" title="Close Modal">&times;</span>
+ -->
+  <!-- Modal Content -->
+  <form class="modal-content animate" action="/login.do">
+    <div class="imgcontainer">
+      <img src="../img/DSC00853.JPG" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>UserName</b></label>
+      <input type="text" placeholder="Enter Username" name="userName" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required>
+
+      <button type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="signupbtn">SignUp</button>    
+      <button type="button" onclick="document.getElementById('loginModal').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
 
 	<div class="cover-container" >
 
@@ -60,7 +89,7 @@
 				</h3>
 				<nav>
 					<ul class="nav masthead-nav">
-						<li class="active" id="loginModalButton"><a href="#">Login</a></li>
+						<li><a data-toggle="modal" id="loginButton" onclick="document.getElementById('loginModal').style.display='block'">Login</a></li>
 						<li><a href="#">community</a></li>
 						<li><a href="#">Dictionary</a></li>
 					</ul>
@@ -79,17 +108,16 @@
 
 			<div class="item active">
 				<img class="first-slide" src="../img/DSC00853.JPG" alt="First slide">
-				<div class="container"></div>
+				
 
 			</div>
 			<div class="item">
-				<img class="second-slide" src="../img/DSC00535.JPG"
-					alt="Second slide">
-				<div class="container"></div>
+				<img class="second-slide" src="../img/DSC00535.JPG"	alt="Second slide">
+				
 			</div>
 			<div class="item">
 				<img class="third-slide" src="../img/DSC01896.JPG" alt="Third slide">
-				<div class="container"></div>
+				
 
 			</div>
 		</div>
@@ -102,9 +130,9 @@
 			<p class="lead">This is the beetles Dictionary site.<br> Although it
 				is a little information at present, it will be a free beetles
 				Dictionary site with cooperation of users.</p>
-			<p class="lead">
+			<!-- <p class="lead">
 				<a href="#" class="btn btn-lg btn-default">Learn more</a>
-			</p>
+			</p> -->
 		</div>
 	</div>
 

@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import SWP.Service.UserService;
+import SWP.domain.User;
+
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController{
 	//
 	@Autowired
@@ -19,7 +22,7 @@ public class UserController{
 	public ModelAndView loginCheck(User user,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		User users = userService.loginCheck(user);
-		if(users = null){
+		if(users != null){
 			mav.addObject("message","error");
 			mav.setViewName("/login.jsp");
 			return mav;

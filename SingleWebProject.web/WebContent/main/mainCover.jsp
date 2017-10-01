@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,55 +31,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->    
-	 <script type="text/javascript">
-	// Get the modal
-	var modal = document.getElementById('loginModal');
-	
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-	}
-	</script>
+
 </head>
 
 <body>
-
-<!-- Button to open the modal login form 
-<button onclick="document.getElementById('loginModal').style.display='block'">Login</button>-->
-
-<!-- The Modal -->
-<div id="loginModal" class="modal">
- <!--  <span onclick="document.getElementById('loginModal').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
- -->
-  <!-- Modal Content -->
-  <form class="modal-content animate" action="/login.do">
-    <div class="imgcontainer">
-      <img src="../img/DSC00853.JPG" alt="Avatar" class="avatar">
-    </div>
-
-    <div class="container">
-      <label><b>UserName</b></label>
-      <input type="text" placeholder="Enter Username" name="userName" required>
-
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
-
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="signupbtn">SignUp</button>    
-      <button type="button" onclick="document.getElementById('loginModal').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
-</div>
-
-
+		
+	<jsp:include page="/main/loginModal.jsp"></jsp:include>
 	<div class="cover-container" >
 
 		<div class="masthead clearfix" style="position: absolute; z-index: 11; left: 0; right: 0; margin: auto;">

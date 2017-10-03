@@ -3,7 +3,8 @@
   <groupId>SingleWebProject</groupId>
   <artifactId>SingleWebProject.web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+  <packaging>war</packaging>
+    
 	<dependencies> 
 		<dependency>
 			<groupId>SingleWebProject</groupId>
@@ -91,5 +92,4 @@
       </plugin>
     </plugins>
   </build>
-  <packaging>war</packaging>
 </project>

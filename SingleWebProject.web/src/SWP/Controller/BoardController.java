@@ -17,6 +17,7 @@ import SWP.Service.BoardService;
 import SWP.Service.PostingService;
 import SWP.domain.Paging;
 import SWP.domain.Posting;
+
 @Controller
 @RequestMapping("/BoardPostList")
 public class BoardController {
@@ -60,3 +61,5 @@ public class BoardController {
 	return mav;
 	}
 }
+
+

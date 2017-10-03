@@ -10,18 +10,22 @@
 class="close" title="Close Modal">&times;</span>
  -->
   <!-- Modal Content -->
-  <form class="modal-content animate" action="/SWP/user/login.do" method="post">
+  <form class="modal-content animate" action="${pageContext.request.contextPath}/user/login.do" method="post">
     <div class="imgcontainer">
       <img src="../img/DSC00853.JPG" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
       <label><b>UserName</b></label>
-      <input id="userName" type="text" placeholder="Enter Username" name="userName" required>
-
+      <input id="userName" name="userName" type="text" placeholder="Enter Username" name="userName" required>
+ 
       <label><b>Password</b></label>
-      <input id="password" type="password" placeholder="Enter Password" name="password" required>
-
+      <input id="userPassword" name="password" type="password" placeholder="Enter Password" name="password" required>
+			<c:if test="${message eq 'error'}">
+				<div style="text-align:center;">
+					<span style="color:red;">아이디 또는 패스워드가 일치하지 않습니다.</span>
+				</div>
+			</c:if>
       <button type="submit">Login</button>
       <input type="checkbox" checked="checked"> Remember me
     </div>

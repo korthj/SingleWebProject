@@ -23,12 +23,12 @@ public class UserController{
 		ModelAndView mav = new ModelAndView();
 		User users = userService.loginCheck(user);
 		if(users != null){
-			mav.addObject("message","error");
-			mav.setViewName("/login.jsp");
+			session.setAttribute("user", users);
+			mav.setViewName("/index.jsp");
 			return mav;
 		}else{
-			session.setAttribute("user", users);
-			mav.setViewName("/main.jsp");
+			mav.addObject("message","error");
+			mav.setViewName("/main/mainCover.jsp");
 			return mav;
 		}
 	} 

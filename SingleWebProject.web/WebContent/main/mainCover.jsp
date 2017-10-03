@@ -46,9 +46,16 @@
 				</h3>
 				<nav>
 					<ul class="nav masthead-nav">
-						<li><a data-toggle="modal" id="loginButton" onclick="document.getElementById('loginModal').style.display='block'">Login</a></li>
-						<li><a href="#">community</a></li>
-						<li><a href="#">Dictionary</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.user eq null}">
+								<li><a data-toggle="modal" id="loginButton" onclick="document.getElementById('loginModal').style.display='block'">Login</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a href="${pageContext.request.contextPath}/user/logout.do">[ ${sessionScope.user.userId} 님 ]로그아웃</a>?</li>
+							</c:otherwise>
+						</c:choose>
+							<li><a href="#">community</a></li>
+							<li><a href="#">Dictionary</a></li>
 					</ul>
 				</nav>
 			</div>

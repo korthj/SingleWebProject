@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="SWP.dao.mapper.BoardMapper">
+<mapper namespace="SWP.Dao.Mapper.BoardMapper">
 
 	<resultMap type="Board" id="Board-map">
 		<result property="boardId" column="id"/>
@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<select id="boardAllPageList" parameterType="int" resultType="Board">
-		SELECT id, name, createdate, 
+		SELECT id
 		FROM board_tb
 		ODER BY id 
 	</select>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="SingleWebProject.domain-0.0.1-SNAPSHOT">
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="java-output-path" value="/SingleWebProject.domain/build/classes"/>
-        <property name="context-root" value="SingleWebProject.domain"/>
-    </wb-module>
-</project-modules>

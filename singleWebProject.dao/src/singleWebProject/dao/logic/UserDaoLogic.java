@@ -10,8 +10,7 @@ import singleWebProject.domain.User;
 
 @Repository
 public class UserDaoLogic implements UserDao {
-
-	@Override
+	//
 	public User loginCheck(User user) {
 		// 로그인 체크
 		SqlSession session = SessionFactory.createInstance().getSession();
@@ -19,7 +18,6 @@ public class UserDaoLogic implements UserDao {
 		
 		User users = mapper.loginCheck(user);
 		session.close();
-		
 		return users;
 	}
 }

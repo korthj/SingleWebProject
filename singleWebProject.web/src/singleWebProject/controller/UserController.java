@@ -20,11 +20,8 @@ public class UserController{
 	
 	@RequestMapping("/login.do")
 	@ResponseBody
-	public ModelAndView loginCheck(HttpSession session){
+	public ModelAndView loginCheck(HttpSession session,User user){
 		ModelAndView mav = new ModelAndView();
-		
-		User user = (User) session.getAttribute("user");
-
 		//User user = new User();
 		User users = userService.loginCheck(user);
 		if(users != null){

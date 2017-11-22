@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="singleWebProject.dao.mapper.PostingMapper">
+	
+	<resultMap type="Posting" id="Posting-map">
+		<result property="postTitle" column="postTitle"/>		
+		<result property="postCreatorName" column="postCreatorName"/>		
+		<result property="postId" column="postId"/>		
+		<result property="postCreateDate" column="postCreateDate"/>		
+		<result property="postContents" column="postContents"/>		
+		<result property="boardId" column="boardId"/>		
+		<result property="start" column="start"/>		
+		<result property="end" column="end"/>	
+		<result property="totalPageNo" column="totalPageNo"/>	
+	</resultMap>
+	
+		<!-- 포스팅 페이징 쿼리  -->
+	<select id="allList" parameterType="map" resultType="Posting">
+		SELECT postId, boardId, postCreatorName, postCreatDate
+		FROM posting_tb
+		WHERE boardid
+		ODER BY postCreateDate
+		LIMIT start,end
+	</select>
+	
+</mapper>

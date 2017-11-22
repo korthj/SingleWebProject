@@ -16,11 +16,11 @@ class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container">
-      <label><b>UserName</b></label>
-      <input id="userName" name="userName" type="text" placeholder="Enter Username" name="userName" required>
+      <label><b>ID</b></label>
+      <input id="userId" name="userId" type="text" placeholder="Enter Id" required>
  
       <label><b>Password</b></label>
-      <input id="userPassword" name="password" type="password" placeholder="Enter Password" name="password" required>
+      <input id="userPassword" name="userPassword" type="password" placeholder="Enter Password" required>
 			<c:if test="${message eq 'error'}">
 				<div style="text-align:center;">
 					<span style="color:red;">아이디 또는 패스워드가 일치하지 않습니다.</span>

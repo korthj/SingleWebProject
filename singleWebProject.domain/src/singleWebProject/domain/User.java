@@ -60,8 +60,8 @@ public class User {
 	
 	public String toStirng() {
 		// TODO Auto-generated method stub
-		return "User [userId=" + userId + ", userPassword" + userPassword + ", userName" + userName + ", userEmail" 
-				+ userEmail + ", userAddress" + userAddress + ", userPhoneNuber" + userPhoneNumber + ", userGender" + userGender + "]"; 
+		return "User [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName + ", userEmail=" 
+				+ userEmail + ", userAddress=" + userAddress + ", userPhoneNuber=" + userPhoneNumber + ", userGender=" + userGender + "]"; 
 	}
 	
 }

@@ -19,6 +19,7 @@ public class SessionFactory {
 			InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
 		}catch(IOException e){
+			//
 			e.printStackTrace();
 			System.out.println("SessionFactory 실행 중 오류 발생");
 		}

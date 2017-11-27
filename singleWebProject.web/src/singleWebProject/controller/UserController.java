@@ -33,6 +33,17 @@ public class UserController{
 			mav.setViewName("/main/mainCover.jsp");
 			return mav;
 		}
-	} 
+	}
+	
+	@RequestMapping("/logout.do")
+	@ResponseBody
+	public ModelAndView logoutCheck(HttpSession session){
+		//로그아
+		ModelAndView mav = new ModelAndView();
+		
+		session.invalidate();
+		mav.setViewName("/index.jsp");
+		return mav;
+	}
 	
 }

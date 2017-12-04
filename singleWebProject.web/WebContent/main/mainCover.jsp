@@ -26,19 +26,46 @@
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!-- <script src="${pageContext.request.contextPath}/resources/assets/ie-emulation-modes-warning.js"></script> -->
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script> 
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	
-<jsp:include page="/main/loginModal.jsp"></jsp:include>
+	<script src="${pageContext.request.contextPath}/resources/js/jsbn.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/rsa.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/prng4.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/rng.js"></script>
+     
+<script type="text/javascript">    
+    //   
+    function login(){
+        var id = $("#userId");
+        var pw = $("#userPassword");
+  		
+        // rsa 암호화
+        var rsa = new RSAKey();
+        rsa.setPublic($("#RSAModulus").val(),$("#RSAExponent").val());
+		
+        $("#USER_ID").val(rsa.encrypt(id.val()));
+        $("#USER_PW").val(rsa.encrypt(pw.val()));
+
+        id.val("");
+        pw.val("");
+  
+        return true;
+    };
+</script>
+
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>	
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->    
-	<!-- login modal -->	
+    <!--[if lt IE 9]-->	
+     <!--   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
+    <!--[endif]-->    
+	<!-- login modal -->
+
 </head>
 
 <body>
+<jsp:include page="/main/loginModal.jsp"></jsp:include>
 	<div class="cover-container" >
 
 		<div class="masthead clearfix" style="position: absolute; z-index: 11; left: 0; right: 0; margin: auto;">

@@ -12,10 +12,10 @@ public class UserServiceLogic implements UserService {
 	//
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Override
 	public User loginCheck(User user) {
-		// 
+		// TODO Auto-generated method stub
 		return userDao.loginCheck(user);
 	}
 

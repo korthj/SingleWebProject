@@ -4,7 +4,7 @@ package singleWebProject.domain;
 public class User {
 	//
 	private String userId; //회원 아이디
-	private String userPassword; //회원 비밀번호
+	private String userPw; //회원 비밀번호
 	private String userName; //회원 이름
 	private String userEmail; //회원 이메일
 	private String userAddress; //회원 주소
@@ -21,11 +21,11 @@ public class User {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getUserPassword() {
-		return userPassword;
+	public String getUserPw() {
+		return userPw;
 	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
 	public String getUserName() {
 		return userName;
@@ -60,7 +60,7 @@ public class User {
 	
 	public String toStirng() {
 		// TODO Auto-generated method stub
-		return "User [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName + ", userEmail=" 
+		return "User [userId=" + userId + ", userPassword=" + userPw + ", userName=" + userName + ", userEmail=" 
 				+ userEmail + ", userAddress=" + userAddress + ", userPhoneNuber=" + userPhoneNumber + ", userGender=" + userGender + "]"; 
 	}
 	

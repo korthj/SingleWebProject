@@ -5,7 +5,7 @@
 
 	<resultMap type="User" id="User">
 		<result property="userId" column="UserId"/>
-		<result property="userPassword" column="UserPassword"/>
+		<result property="userPw" column="UserPassword"/>
 		<result property="userName" column="UserName"/>
 		<result property="userEmail" column="UserEmail"/>
 		<result property="userAddress" column="UserAddress"/>
@@ -18,7 +18,7 @@
 		SELECT 
 		UserId,UserPassword,UserName,UserEmail,UserAddress,UserPhoneNumber,UserGender
 		FROM user_tb
-		WHERE UserId = #{userId} and UserPassword = #{userPassword}
+		WHERE UserId = #{userId} and UserPassword = #{userPw}
 	</select>
 
 </mapper>

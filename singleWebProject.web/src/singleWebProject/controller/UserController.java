@@ -33,9 +33,19 @@ public class UserController{
 	@Autowired
 	private static String RSA_INSTANCE = "RSA";//rsa transformation
 	
+	@RequestMapping("/signUp.do")
+	public ModelAndView signUpCheck(HttpServletRequest req) throws Exception{
+		//회원가입
+		ModelAndView mav = new ModelAndView();
+		
+		return mav;
+	}
+	
 	@RequestMapping("/loginForm.do")
 	public ModelAndView loginForm(HttpServletRequest req, HttpServletResponse resp) throws Exception{
 		//
+		HttpSession session = req.getSession();
+		session.removeAttribute(UserController.RSA_WEB_KEY);
 		//rsa키 생성
 		initRsa(req);
 
@@ -73,7 +83,7 @@ public class UserController{
 			return mav;
 		}else{
 			mav.addObject("message","error");
-			mav.setViewName("/main/mainCover.jsp");
+			mav.setViewName("/user/loginForm.do");
 			return mav;
 		}
 	}

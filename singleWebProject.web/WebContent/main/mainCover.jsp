@@ -135,7 +135,7 @@
 		<div class="mastfoot" style="position:absolute; left: 0; right: 0; margin:auto; bottom:0; z-index:11;" >
 			<div class="inner">
 				<p>
-					Developer by <a href="">HJ Kim</a> , Partner by<a href="http://www.stagBeetles.com"> 충우</a>
+					Developer by <a href="">kort</a> , Partner by<a href="http://www.stagBeetles.com"> 충우</a>
 				</p>
 			</div>
 		</div>

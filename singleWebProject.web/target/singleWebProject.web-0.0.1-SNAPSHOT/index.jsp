@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv='refresh' content="0;url='${pageContext.request.contextPath}/main/mainPage.do'">	
+	<meta http-equiv='refresh' content="0;url='${pageContext.request.contextPath}/user/loginForm.do'">	
 	<title>Beetles.Dic</title>
 </head>
 <body>

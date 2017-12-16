@@ -80,7 +80,7 @@ class="close" title="Close Modal">&times;</span>
       <label><b>Password</b></label>
       <input id="userPassword" name="userPassword" type="password" placeholder="Enter Password" required>
 			<c:if test="${message eq 'error'}">
-				<div style="text-align:center;">
+				<div style="text-align:center;" >
 					<span style="color:red;">아이디 또는 패스워드가 일치하지 않습니다.</span>
 				</div>
 			</c:if> 

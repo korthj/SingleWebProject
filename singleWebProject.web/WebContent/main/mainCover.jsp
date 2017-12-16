@@ -45,12 +45,23 @@
 		
         $("#USER_ID").val(rsa.encrypt(id.val()));
         $("#USER_PW").val(rsa.encrypt(pw.val()));
-
+	
         id.val("");
         pw.val("");
   
         return true;
     };
+</script>
+<script>
+	//
+	$(document).ready(function(){
+		//
+		var loginFalse = '${message}';
+		if(loginFalse == "error"){
+			  modal.style.display = "block"; 
+		}
+		    
+	})
 </script>
 
 
@@ -71,7 +82,7 @@
 		<div class="masthead clearfix" style="position: absolute; z-index: 11; left: 0; right: 0; margin: auto;">
 			<div class="inner">
 				<h3 class="masthead-brand">
-					<a href="../main/mainCover.jsp">Beetles.dic</a>
+					<a href="${pageContext.request.contextPath}/user/loginForm.do">Beetles.dic</a>
 				</h3>
 				<nav>
 					<ul class="nav masthead-nav">
@@ -80,7 +91,7 @@
 								<li><a data-toggle="modal" id="loginButton" onclick="document.getElementById('loginModal').style.display='block'">Login</a></li>
 							</c:when>
 							<c:otherwise>
-								<li><a href="${pageContext.request.contextPath}/user/logout.do">[ ${sessionScope.user.userId} 님 ]로그아웃</a></li>
+								<li><a href="${pageContext.request.contextPath}/user/logout.do">[ ${sessionScope.user.userName} 님 ]로그아웃</a></li>
 							</c:otherwise>
 						</c:choose>
 							<li><a href="#">community</a></li>
@@ -94,7 +105,7 @@
 	</div>
 
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="false" style="z-index: 1;">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-pause="false" >
 
 		<div class="carousel-inner" role="listbox">
 
@@ -149,10 +160,10 @@
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="../resources/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-	<script src="../resources/assets/ie10-viewport-bug-workaround.js"></script>
-	<script src="../resources/js/holder.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/assets/ie10-viewport-bug-workaround.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/holder.js"></script>
 
 </body>
 </html>

@@ -20,4 +20,15 @@ public class UserDaoLogic implements UserDao {
 		session.close();
 		return users;
 	}
+
+	@Override
+	public String signUpIdCheck(User userId) {
+		// 비동기 아이디 체크
+		SqlSession session = SessionFactory.createInstance().getSession();
+		UserMapper mapper = session.getMapper(UserMapper.class);
+		
+		String users = mapper.signUpIdCheck(userId);
+		session.close();
+		return users;
+	}
 }

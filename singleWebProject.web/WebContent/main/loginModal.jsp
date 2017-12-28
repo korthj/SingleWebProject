@@ -92,7 +92,7 @@ class="close" title="Close Modal">&times;</span>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="signupbtn">SignUp</button>    
+      <button type="button" class="signupbtn" id="signUpBtn" onclick="document.getElementById('signUpModal').style.display='block'">SignUp</button>    
       <button type="button" onclick="document.getElementById('loginModal').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
@@ -100,12 +100,23 @@ class="close" title="Close Modal">&times;</span>
 </div>
 		 <script>
 	// Get the modal
-	var modal = document.getElementById('loginModal');
-	 
+	var modal = document.getElementById('loginModal');	  
+	var signUp = document.getElementById('signUpBtn');	
+	var signUpForm = document.getElementById('signUpModal');	  
+
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
+	    //
+		if(event.target == modal) {
+			document.getElementById('loginModal').style.display = "none";
+	    }
+	    if(event.target == signUp){
+	    	document.getElementById('loginModal').style.display = "none";
+	    }
+	    if(event.target == signUpForm) {
+	    	document.getElementById('signUpModal').style.display = "none";
 	    }
 	}
+	
 	</script>
+	

@@ -21,4 +21,10 @@
 		WHERE UserId = #{userId} and UserPassword = #{userPw}
 	</select>
 
+	<select id="signUpIdCheck" parameterType="User" resultType="String">
+		SELECT
+		userId
+		FROM user_tb
+		WHERE userId = #{userId}
+	</select>
 </mapper>

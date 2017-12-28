@@ -76,6 +76,7 @@
 </head>
 
 <body>
+<jsp:include page="/main/signUpModal.jsp"></jsp:include>
 <jsp:include page="/main/loginModal.jsp"></jsp:include>
 	<div class="cover-container" >
 

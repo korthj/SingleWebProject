@@ -41,6 +41,22 @@ public class UserController{
 		return mav;
 	}
 	
+	@RequestMapping("/signUpIdCheck.do")
+	@ResponseBody
+	public ModelAndView signUpIdCheck(User userId){
+		//비동기 아이디 중복체크 
+		String id = userService.signUpIdCheck(userId);
+		ModelAndView mav = new ModelAndView();
+		if(id == "" || id == null){
+			//
+			mav.addObject(id, "0");
+		}else if(id != "" || id != null){
+			mav.addObject(id, "1");
+		}
+		System.out.println(mav);
+		return mav;
+	}
+	
 	@RequestMapping("/loginForm.do")
 	public ModelAndView loginForm(HttpServletRequest req, HttpServletResponse resp) throws Exception{
 		//

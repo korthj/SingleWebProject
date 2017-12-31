@@ -60,13 +60,9 @@ function getCookie(cookieName) {
 }
 </script>
 
-<!-- The Modal -->
 <div id="loginModal" class="modal">
- <!--  <span onclick="document.getElementById('loginModal').style.display='none'" 
-class="close" title="Close Modal">&times;</span>
- -->
-  <!-- Modal Content -->
-  <form class="modal-content animate" id="loginForm" name="loginForm" method="post" action="${pageContext.request.contextPath}/user/login.do" onsubmit="return login();">
+
+  <form class="modal-content animate" id="loginForm" name="loginForm" method="post" action="${pageContext.request.contextPath}/user/login.do" onsubmit="return login()">
     <div class="imgcontainer">
       <img src="../img/DSC00853.JPG" alt="Avatar" class="avatar">
     </div>
@@ -98,13 +94,11 @@ class="close" title="Close Modal">&times;</span>
     </div>
   </form>
 </div>
-		 <script>
-	// Get the modal
+	<script>
 	var modal = document.getElementById('loginModal');	  
 	var signUp = document.getElementById('signUpBtn');	
 	var signUpForm = document.getElementById('signUpModal');	  
 
-	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 	    //
 		if(event.target == modal) {

@@ -31,4 +31,14 @@ public class UserDaoLogic implements UserDao {
 		session.close();
 		return users;
 	}
+
+	@Override
+	public void signUp(User user) {
+		// 회원가입 
+		SqlSession session = SessionFactory.createInstance().getSession();
+		UserMapper mapper = session.getMapper(UserMapper.class);
+		
+		mapper.signUp(user);
+		session.close();
+	}
 }

@@ -27,4 +27,11 @@
 		FROM user_tb
 		WHERE userId = #{userId}
 	</select>
+	
+	<insert id="signUp" parameterType="User">
+		INSERT INTO
+		user_tb
+		(UserId,UserPassword,UserName,UserEmail,UserAddress,UserPhoneNumber,UserGender)
+		VALUES 	(#{userId},#{userPw},#{userName},#{userEmail},#{userAddress},#{userPhoneNumber},#{userGender});
+	</insert>
 </mapper>

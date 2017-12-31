@@ -36,25 +36,44 @@ public class UserController{
 	@RequestMapping("/signUp.do")
 	public ModelAndView signUpCheck(HttpServletRequest req) throws Exception{
 		//회원가입
+		
+		String userId = req.getParameter("signUpId");
+		String userName = req.getParameter("signUpName");
+		String userEmail = req.getParameter("signUpEm");
+		String userAddress = req.getParameter("signUpAdd");
+		String userPhoneNumber = req.getParameter("signUpPN");
+		String userPw = req.getParameter("signUpPw");
+		String userGender = req.getParameter("signUpGe");
+		
+		User user = new User();
+		user.setUserId(userId);
+		user.setUserName(userName);
+		user.setUserEmail(userEmail);
+		user.setUserAddress(userAddress);
+		user.setUserPhoneNumber(userPhoneNumber);
+		user.setUserPw(userPw);
+		user.setUserGender(userGender);
+		
+		userService.signUp(user);
+		
 		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/user/loginForm.do");
 		
 		return mav;
-	}
+		}
 	
 	@RequestMapping("/signUpIdCheck.do")
 	@ResponseBody
-	public ModelAndView signUpIdCheck(User userId){
+	public String signUpIdCheck(User userId){
 		//비동기 아이디 중복체크 
 		String id = userService.signUpIdCheck(userId);
-		ModelAndView mav = new ModelAndView();
 		if(id == "" || id == null){
 			//
-			mav.addObject(id, "0");
+			id="0";
 		}else if(id != "" || id != null){
-			mav.addObject(id, "1");
+			id="1";
 		}
-		System.out.println(mav);
-		return mav;
+		return id;
 	}
 	
 	@RequestMapping("/loginForm.do")

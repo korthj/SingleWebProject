@@ -7,4 +7,6 @@ public interface UserMapper {
 	User loginCheck(User user);
 	
 	String signUpIdCheck(User userId);
+	
+	void signUp(User user);
 }

@@ -62,7 +62,7 @@
 					//
 					$("#signUpFormBtn").prop("disabled", false);
 					$("#signUpFormBtn").css("background-color","#4CAF50");
-					singUpCheck();
+					signUpCheck();
 				}
 			}else if(inputed != reinputed){
 				//
@@ -94,44 +94,44 @@
 			$("#signUpFormBtn").css("background-color","#aaaaaa");
 			$("#signUpRePw").css("background-color","transparent");
 			document.getElementById('signUpModal').style.display='none';
-		}
+		} 
 		
 </script>
+
 <div id="signUpModal" class="modal">
 
-	<form class="modal-content animate" id="signUpForm" name="signUpForm" method="post" action="${pageContext.request.contextPath}/user/signUp.do" onsubmit="return signUp();">
+	<form class="modal-content animate" id="signUpForm" name="signUpForm" method="post" action="${pageContext.request.contextPath}/user/signUp.do" onsubmit="return signUpSub()">
 		<div class="container">
 			<label><b>ID</b></label>
-			<input type="text" id="signUpId" placeholder="ID" oninput="checkId()">		
+			<input type="text" id="signUpId" name="signUpId" placeholder="ID" oninput="checkId()">		
 		
 			<label><b>Name</b></label>
-			<input type="text" id="signUpName" placeholder="Name" oninput="checkId()">
+			<input type="text" id="signUpName" name="signUpName" placeholder="Name" oninput="checkId()">
 	
 			<label><b>Email</b></label>
-			<input type="text" id="signUpEm" placeholder="Email" oninput="checkId()">
+			<input type="text" id="signUpEm" name="signUpEm" placeholder="Email" oninput="checkId()">
 		
 			<label><b>Address</b></label>
-			<input type="text" id="signUpAdd" placeholder="Address">
+			<input type="text" id="signUpAdd" name="signUpAdd" placeholder="Address">
 		
 			<label><b>PhoneNumber</b></label>
-			<input type="text" id="signUpPN" placeholder="PhoneNumber">
+			<input type="text" id="signUpPN" name="signUpPN" placeholder="PhoneNumber">
 			
 			<label><b>Password</b></label>
-			<input type="password" id="signUpPw" placeholder="Password" oninput="checkPw()">
+			<input type="password" id="signUpPw" name="signUpPw" placeholder="Password" oninput="checkPw()">
 			
 			<label><b>Repeat Password</b></label>
-			<input type="password" id="signUpRePw" placeholder="Repeat Password" oninput="checkPw()">
+			<input type="password" id="signUpRePw" name="signUpRePw" placeholder="Repeat Password" oninput="checkPw()">
 			
 			<label><b>Gender</b></label> <br>
-			<select id="signUpGe">
-				<option value="male">male</option>
-				<option value="female">female</option>
+			<select id="signUpGe" name="signUpGe">
+				<option value="m">male</option>
+				<option value="f">female</option> 
 			</select>
 		</div>
 	    <div class="container" style="background-color:#f1f1f1"> 
-	     	 <button type="submit" class="signupbtn" id="signUpFormBtn" disabled="disabled" style="background-color:#aaaaaa;">SignUp!</button>    
-	      	<button type="button" id="cancelBtn" class="cancelbtn" onclick="cancel()">Cancel</button>
+	     	<button type="submit" class="signupbtn" id="signUpFormBtn" disabled="disabled" style="background-color:#aaaaaa;">SignUp!</button>    
+	      	<button type="button" id="cancelBtn" class="cancelbtn" onclick="cancel()">Cancel</button> 
    	    </div>
 	</form>
-
 </div>

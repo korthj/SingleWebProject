@@ -24,6 +24,12 @@ public class UserServiceLogic implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.signUpIdCheck(userId);
 	}
+
+	@Override
+	public void signUp(User user) {
+		// TODO Auto-generated method stub
+		userDao.signUp(user);
+	}
 	
 	
 

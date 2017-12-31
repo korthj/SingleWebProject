@@ -33,12 +33,19 @@
 	<script src="${pageContext.request.contextPath}/resources/js/prng4.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/rng.js"></script>
      
+<script type="text/javascript">
+	//다중 폼 중 선택하여 보내기 위하여 생성한 빈 함수
+	 function signUpSub(){  
+    
+    	return true;
+    }; 
+</script>
 <script type="text/javascript">    
     //   
     function login(){
         var id = $("#userId");
         var pw = $("#userPassword");
-  		
+  
         // rsa 암호화
         var rsa = new RSAKey();
         rsa.setPublic($("#RSAModulus").val(),$("#RSAExponent").val());

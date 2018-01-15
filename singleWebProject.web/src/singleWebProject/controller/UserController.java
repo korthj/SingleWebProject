@@ -34,7 +34,7 @@ public class UserController{
 	private static String RSA_INSTANCE = "RSA";//rsa transformation
 	
 	@RequestMapping("/signUp.do")
-	public ModelAndView signUpCheck(HttpServletRequest req) throws Exception{
+	public void signUpCheck(HttpServletRequest req,HttpServletResponse resp) throws Exception{
 		//회원가입
 		
 		String userId = req.getParameter("signUpId");
@@ -55,11 +55,7 @@ public class UserController{
 		user.setUserGender(userGender);
 		
 		userService.signUp(user);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/user/loginForm.do");
-		
-		return mav;
+		resp.sendRedirect(req.getContextPath()+"/user/loginForm.do");
 		}
 	
 	@RequestMapping("/signUpIdCheck.do")
@@ -77,7 +73,7 @@ public class UserController{
 	}
 	
 	@RequestMapping("/loginForm.do")
-	public ModelAndView loginForm(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+	public ModelAndView loginForm(HttpServletRequest req) throws Exception{
 		//
 		HttpSession session = req.getSession();
 		session.removeAttribute(UserController.RSA_WEB_KEY);
@@ -92,7 +88,7 @@ public class UserController{
 	
 	@RequestMapping("/login.do")
 	@ResponseBody
-	public ModelAndView loginCheck(HttpServletRequest req, HttpServletResponse resp) throws Exception{
+	public ModelAndView loginCheck(HttpServletRequest req) throws Exception{
 		//
 		String userId = req.getParameter("USER_ID");
 		String userPw = req.getParameter("USER_PW");

@@ -70,7 +70,18 @@
 		    
 	})
 </script>
-
+<script>
+function communityMain(){
+	//커뮤니티 메인 이동 전 유효성 검사
+	var users = "${sessionScope.user.userName}"; 
+		
+	if(users != ""){
+		document.getElementById('communityMainModal').style.display='block';
+	}else if(users == ""){
+		document.getElementById('cancelCommunityAlertModal').style.display='block';
+	}
+}
+</script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -85,6 +96,8 @@
 <body>
 <jsp:include page="/main/signUpModal.jsp"></jsp:include>
 <jsp:include page="/main/loginModal.jsp"></jsp:include>
+<jsp:include page="/board/communityMainModal.jsp"></jsp:include>
+<jsp:include page="/board/cancelCommunityAlertModal.jsp"></jsp:include>
 	<div class="cover-container" >
 
 		<div class="masthead clearfix" style="position: absolute; z-index: 11; left: 0; right: 0; margin: auto;">
@@ -102,7 +115,7 @@
 								<li><a href="${pageContext.request.contextPath}/user/logout.do">[ ${sessionScope.user.userName} 님 ]로그아웃</a></li>
 							</c:otherwise>
 						</c:choose>
-							<li><a href="#">community</a></li>
+							<li><a onclick="communityMain()">community</a></li>
 							<li><a href="#">Dictionary</a></li>
 					</ul>
 				</nav>

@@ -94,23 +94,23 @@ function getCookie(cookieName) {
     </div>
   </form>
 </div>
-	<script>
-	var modal = document.getElementById('loginModal');	  
-	var signUp = document.getElementById('signUpBtn');	
-	var signUpForm = document.getElementById('signUpModal');	  
-
-	window.onclick = function(event) {
-	    //
+<script>
+	
+	var modal = $("#loginModal")[0];	  
+	var signUp = $('#signUpBtn')[0];	
+	var signUpForm = $('#signUpModal')[0];	  
+	
+	$(document).click(function(){
+		 //
 		if(event.target == modal) {
-			document.getElementById('loginModal').style.display = "none";
+			$("#loginModal").hide();
 	    }
 	    if(event.target == signUp){
-	    	document.getElementById('loginModal').style.display = "none";
+	    	$("#loginModal").hide();
 	    }
 	    if(event.target == signUpForm) {
-	    	document.getElementById('signUpModal').style.display = "none";
-	    }
-	}
-	
-	</script>
+	    	$("#signUpModal").hide();
+	    }		
+	}); 
+</script>
 	

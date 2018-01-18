@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import singleWebProject.domain.Paging;
 import singleWebProject.domain.Posting;
+import singleWebProject.domain.User;
 import singleWebProject.service.BoardService;
 import singleWebProject.service.PostingService;
 
@@ -65,6 +67,20 @@ public class BoardController{
 		
 	return mav;
 	}
+	
+	@RequestMapping("/communityCheck.do")
+	public ModelAndView communityMain(HttpSession session){
+		//커뮤니티 메인 페이지
+		ModelAndView mav = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		
+		if(user != null){
+			mav.setViewName("/board/communityMain.do");
+			mav.addObject(user);
+		}
+		return mav;
+	}
+	
 }
 
 

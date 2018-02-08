@@ -22,6 +22,12 @@
     <link href="${pageContext.request.contextPath}/resources/css/carousel.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/css/bootstrapLoginModal.css" rel="stylesheet">
 	<link href="${pageContext.request.contextPath}/resources/css/bootstrapLoginModalWindow.css" rel="stylesheet">
+	
+	<!--community animation CSS -->
+	<!--<link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/communityButton.css" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
+	
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!-- <script src="${pageContext.request.contextPath}/resources/assets/ie-emulation-modes-warning.js"></script> -->
@@ -74,16 +80,34 @@
 function communityMain(){
 	//커뮤니티 메인 이동 전 유효성 검사
 	var users = "${sessionScope.user.userName}"; 
-		
+		 
 	if(users != ""){
-		document.getElementById('communityMainModal').style.display='block';
+		//$('#communityMainModal').show();
+		return myFunction();
 	}else if(users == ""){
-		document.getElementById('cancelCommunityAlertModal').style.display='block';
+		$('#cancelCommunityAlertModal').show();
 	}
 }
 </script>
 
 
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+        myDropdown.classList.remove('show');
+      }
+  }
+}
+</script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]-->	
      <!--   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -92,11 +116,10 @@ function communityMain(){
 	<!-- login modal -->
 
 </head>
-
+ 
 <body>
 <jsp:include page="/main/signUpModal.jsp"></jsp:include>
 <jsp:include page="/main/loginModal.jsp"></jsp:include>
-<jsp:include page="/board/communityMainModal.jsp"></jsp:include>
 <jsp:include page="/board/cancelCommunityAlertModal.jsp"></jsp:include>
 	<div class="cover-container" >
 
@@ -104,19 +127,26 @@ function communityMain(){
 			<div class="inner">
 				<h3 class="masthead-brand">
 					<a href="${pageContext.request.contextPath}/user/loginForm.do">Beetles.dic</a>
-				</h3>
+				</h3> 
 				<nav>
 					<ul class="nav masthead-nav">
-						<c:choose>
+						<c:choose> 
 							<c:when test="${sessionScope.user eq null}">
-								<li><a data-toggle="modal" id="loginButton" onclick="document.getElementById('loginModal').style.display='block'">Login</a></li>
+								<li><a data-toggle="modal" id="loginButton" onclick="$('#loginModal').show()">Login</a></li>
 							</c:when>
 							<c:otherwise>
 								<li><a href="${pageContext.request.contextPath}/user/logout.do">[ ${sessionScope.user.userName} 님 ]로그아웃</a></li>
 							</c:otherwise>
 						</c:choose>
-							<li><a onclick="communityMain()">community</a></li>
-							<li><a href="#">Dictionary</a></li>
+							<li><a class="dropbtn" onclick="communityMain()">community</a>						
+								    <div class="dropdown-content" id="myDropdown">
+								      <a href="#">자유게시판</a>
+								      <a href="#">Q&A</a>
+								      <a href="#">ㅁㄴ</a>
+								    </div>
+								   
+							</li>
+						<li><a href="#">Dictionary</a></li>
 					</ul>
 				</nav>
 			</div>

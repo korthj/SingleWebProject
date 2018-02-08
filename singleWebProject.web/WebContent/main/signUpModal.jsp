@@ -31,6 +31,7 @@
 						//
 					$("#signUpFormBtn").prop("disabled",false);
 					$("#signUpFormBtn").css("background-color","#4CAF50");
+					checkPw();
 					signUpCheck();
 					}
 				}else if(data == "1"){

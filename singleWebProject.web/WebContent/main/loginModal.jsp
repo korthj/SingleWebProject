@@ -96,20 +96,20 @@ function getCookie(cookieName) {
 </div>
 <script>
 	
-	var modal = $("#loginModal")[0];	  
+	var modal = $('#loginModal')[0];	  
 	var signUp = $('#signUpBtn')[0];	
 	var signUpForm = $('#signUpModal')[0];	  
 	
 	$(document).click(function(){
 		 //
 		if(event.target == modal) {
-			$("#loginModal").hide();
+			$('#loginModal').hide();
 	    }
 	    if(event.target == signUp){
-	    	$("#loginModal").hide();
+	    	$('#loginModal').hide();
 	    }
 	    if(event.target == signUpForm) {
-	    	$("#signUpModal").hide();
+	    	$('#signUpModal').hide();
 	    }		
 	}); 
 </script>
